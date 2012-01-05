@@ -1,0 +1,11 @@
+Package: qgis-archeos-plugin
+Version: 0.3
+Section: archeos
+Priority: extra
+Architecture: i386
+Depends: qgis (>= 1.7), python-qgis (>= 1.7), python-qgis-common (>= 1.7), python-psycopg2, python-sqlalchemy, python-imaging, python-reportlab, vtp
+Installed-Size: 10.2 MB 
+Maintainer: Luca Bezzi <luca.bezzi@arc-team.com>
+Homepage: http://www.archeos.eu/
+Description: QGIS plugins useful in archaeology (archeos-extension)
+

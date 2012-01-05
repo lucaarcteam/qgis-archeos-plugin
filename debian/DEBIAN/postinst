@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# For every user in /home/ ...
+for HOME_U in /home/*?; do
+
+# Obtain the username
+USER=$( basename ${HOME_U} )
+
+# In case the user is active (exists in /etc/shadow) ...
+if [ $( grep -c "${USER}:.*:.*:.*:.*:.*:::" /etc/shadow ) == 1 ] \
+&& [ $( grep -c "${USER}:.*:.*:.*:.*:.*:/bin/.*sh" /etc/passwd ) == 1 ] \
+&& [ -d ${HOME_U}/.config ] \
+&& [ -d ${HOME_U} ]; then
+
+# Making sure .config/your-package/ exists
+mkdir -p /home/${USER}/.qgis/
+
+# with appropiate permissions
+chown ${USER}:${USER} /home/${USER}/.qgis/
+
+# copy what we need
+cp -R /usr/share/archeos/qgis_archeos_plugin-0.1/python/ /home/${USER}/.qgis/
+
+# with appropiate permissions
+chown -R ${USER}:${USER} /home/${USER}/.qgis/
+...
+
+fi
+done
