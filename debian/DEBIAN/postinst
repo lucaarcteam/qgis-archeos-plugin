@@ -12,7 +12,7 @@ if [ $( grep -c "${USER}:.*:.*:.*:.*:.*:::" /etc/shadow ) == 1 ] \
 && [ -d ${HOME_U}/.config ] \
 && [ -d ${HOME_U} ]; then
 
-# Making sure .config/your-package/ exists
+# Making sure .qgis/ exists
 mkdir -p /home/${USER}/.qgis/
 
 # with appropiate permissions
@@ -23,7 +23,6 @@ cp -R /usr/share/archeos/qgis_archeos_plugin-0.1/python/ /home/${USER}/.qgis/
 
 # with appropiate permissions
 chown -R ${USER}:${USER} /home/${USER}/.qgis/
-...
 
 fi
 done
